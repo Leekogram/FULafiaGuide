@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FULafia Guide</string>
+    <string name="action_search">Search faculties</string>
+    <string name="toolbar_title">Search faculties</string>
+    <string name="search_hint">Type faculty name…</string>
+    <string name="home">"<u>Home</u>"</string>
+    <string name="faculty">"<u>Faculty</u>"</string>
+    <string name="department">"<u>Department</u>"</string>
+</resources>
