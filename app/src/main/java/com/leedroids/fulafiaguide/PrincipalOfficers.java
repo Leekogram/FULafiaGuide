@@ -17,9 +17,12 @@ public class PrincipalOfficers extends AppCompatActivity {
     private ArrayList<PrincipalOfficersModel> principalOfficersModels;
     private PrincipalOfficersAdapter principalOfficersAdapter;
 
-    private int[] IMAGE1 = {R.drawable.braide,R.drawable.braide,R.drawable.braide};
-    private String[] NAME = {"Braide","Braide","Braide"};
-    private String[] POST = {"Vice Chancellor","Vice Chancellor","Vice Chancellor"};
+    private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.liman,R.drawable.dvc,
+		R.drawable.registrar,R.drawable.librarian,R.drawable.bursar};
+    private String[] NAME = {"King W.S Joshua Igbugburu","Professor Muhammed Sanusi Liman","Professor Idris Amali",
+		"Dr Abubakar Mamuda","Dr Abiodun Iyaro","Mr Daniel Anjola Wilson"};
+    private String[] POST = {"Chancellor","Vice Chancellor","Vice Chancellor",
+		"Registrar","Librarian","Bursar"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
