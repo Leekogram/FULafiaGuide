@@ -2,18 +2,18 @@ package com.leedroids.fulafiaguide;
 
 import Adaptors.SliderAdapter;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         more = findViewById(R.id.More);
         scrollView = findViewById(R.id.scrollView);
         bottomNavigationView = findViewById(R.id.bottomBar);
-
-
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -79,10 +77,8 @@ public class MainActivity extends AppCompatActivity {
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                History fragment = new History();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.mFragment, fragment, "History");
-                fragmentTransaction.commit();
+                Intent intent = new Intent(getApplicationContext(),History.class);
+                startActivity(intent);
             }
         });
        faculties.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.mallamadamulectureandofficecomplex,
                 R.drawable.temp,
                 R.drawable.images3
-
         };
 
         viewPager.setAdapter(new SliderAdapter(this, images));
@@ -130,6 +125,22 @@ public class MainActivity extends AppCompatActivity {
 
         timer.scheduleAtFixedRate(new SliderTimer(),1000,10000);
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        AlertDialog.Builder exitAlert = new AlertDialog.Builder(this);
+        exitAlert.setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
     private class  SliderTimer extends TimerTask {
         @Override
         public  void  run(){
