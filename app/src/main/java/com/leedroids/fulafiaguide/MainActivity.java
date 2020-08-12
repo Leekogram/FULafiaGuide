@@ -2,6 +2,7 @@ package com.leedroids.fulafiaguide;
 
 import Adaptors.SliderAdapter;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -10,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -128,13 +130,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         AlertDialog.Builder exitAlert = new AlertDialog.Builder(this);
         exitAlert.setMessage("Are you sure you want to exit?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        MainActivity.this.finish();
+                        MainActivity.this.finishAffinity();
                     }
                 })
                 .setNegativeButton("No", null)
