@@ -41,9 +41,11 @@ public class MainActivity extends AppCompatActivity {
         map = findViewById(R.id.Map);
         more = findViewById(R.id.More);
         scrollView = findViewById(R.id.scrollView);
+
         bottomNavigationView = findViewById(R.id.bottomBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationListener(this));
 
-
+/**
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,13 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(sendIntent);
                         break;
 
-
-
-
                 }
                 return true;
             }
-        });
+        }); **/
 
         history.setOnClickListener(new View.OnClickListener() {
             @Override

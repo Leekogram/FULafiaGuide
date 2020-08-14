@@ -8,6 +8,7 @@ import fragments.PastVcs;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class History extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class History extends AppCompatActivity {
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,11 @@ public class History extends AppCompatActivity {
         adapter.addFragment(new HistoryOfFulafia(),"History of FULafia");
         adapter.addFragment(new PastVcs(),"Past Vice Chacellors");
 
-
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-    }
 
+        bottomNavigationView = findViewById(R.id.bottomBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationListener(this));
+    }
 
 }

@@ -9,6 +9,8 @@ import model.PrincipalOfficersModel;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 public class PrincipalOfficers extends AppCompatActivity {
@@ -16,6 +18,7 @@ public class PrincipalOfficers extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<PrincipalOfficersModel> principalOfficersModels;
     private PrincipalOfficersAdapter principalOfficersAdapter;
+    private BottomNavigationView bottomNavigationView;
 
     private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.liman,R.drawable.dvc,
 		R.drawable.registrar,R.drawable.librarian,R.drawable.bursar};
@@ -46,5 +49,8 @@ public class PrincipalOfficers extends AppCompatActivity {
 
         principalOfficersAdapter = new PrincipalOfficersAdapter(PrincipalOfficers.this, principalOfficersModels);
         recyclerView.setAdapter(principalOfficersAdapter);
+
+        bottomNavigationView = findViewById(R.id.bottomBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationListener(this));
     }
 }

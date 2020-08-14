@@ -57,8 +57,6 @@ public class FacultyPage extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-
-
         int f_image = extras.getInt("facultyImage");
          f_name = extras.getString("facultyName");
          depart.setText(f_name);
