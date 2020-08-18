@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.leedroids.fulafiaguide">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +18,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FacultyPage"></activity>
-        <activity android:name=".More" />
-        <activity android:name=".Map" />
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".FulafiaMapActivity"
+            android:label="@string/title_activity_fulafia_map"></activity>
+        <activity android:name=".FacultyPage" />
         <activity android:name=".StudentsLife" />
         <activity android:name=".Faculties">
             <meta-data
@@ -24,7 +46,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".About" />
-        <activity android:name=".PrincipalOfficers" />
+        <activity android:name=".PrincipalOfficers"
+            android:label="FULAFIA Principal Officers"/>
         <activity android:name=".History" />
         <activity android:name=".MainActivity" />
         <activity

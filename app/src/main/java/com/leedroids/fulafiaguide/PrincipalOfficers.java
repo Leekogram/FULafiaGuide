@@ -2,6 +2,7 @@ package com.leedroids.fulafiaguide;
 
 import Adaptors.PrincipalOfficersAdapter;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,7 @@ public class PrincipalOfficers extends AppCompatActivity {
     private ArrayList<PrincipalOfficersModel> principalOfficersModels;
     private PrincipalOfficersAdapter principalOfficersAdapter;
     private BottomNavigationView bottomNavigationView;
+    private Toolbar toolbar;
 
     private int[] IMAGE1 = {R.drawable.chancellor,R.drawable.liman,R.drawable.dvc,
 		R.drawable.registrar,R.drawable.librarian,R.drawable.bursar};
@@ -31,6 +33,9 @@ public class PrincipalOfficers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_officers);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

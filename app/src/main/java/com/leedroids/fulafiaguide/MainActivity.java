@@ -97,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(principalIntent);
             }
         });
+
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapIntent= new Intent(getApplicationContext(),FulafiaMapActivity.class);
+                startActivity(mapIntent);
+            }
+        });
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
