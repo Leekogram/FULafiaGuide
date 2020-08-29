@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/call_security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Fulafia Security"
+            android:background="@drawable/circle_brown_back"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/call_student_affair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Students Affairs"
+            android:background="@drawable/circle_brown_back"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/call_clinic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Fulafia Clinic"
+            android:background="@drawable/circle_brown_border"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

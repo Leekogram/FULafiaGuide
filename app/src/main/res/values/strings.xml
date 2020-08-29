@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">FULafia Guide</string>
+    <string name="action_search">Search faculties</string>
+    <string name="toolbar_title">Search faculties</string>
+    <string name="search_hint">Type faculty name…</string>
+    <string name="home">"<u>Home</u>"</string>
+    <string name="faculty">"<u>Faculty</u>"</string>
+    <string name="department">"<u>Department</u>"</string>
+    <string name="title_activity_fulafia_map">Map</string>
+    <string name="about_fulafia">
+        The Federal University of Lafia (FULafia) was established in February 2011 by the Federal Government of Nigeria for the public benefit and it is recognized globally. Throughout our great history, FULafia has offered access to a wide range of academic opportunities.\n\n
+        The pioneer Vice Chancellor of the University was Professor Ekanem Ikpi Braide and the current Vice Chancellor is Professor Muhammad Sanusi Liman. The Federal University of Lafia started with an initial student population of 243 at the commencement of academic activities in 2012, which has now increased to over 5000 in the 2018/2019 academic session.\n\n
+        The Federal University of Lafia commenced academic activities on a takeoff site on Obi Road, Lafia at the erstwhile State Secretariat Complex donated by the Nasarawa State Government. There were enough buildings and structures on the site that served as offices and class rooms, existing structures were renovated and more structures were put in place before the commencement of academic activities.\n\n
+        The University began moving to its permanent site in 2015, which is on a 206 hectares of land along the Lafia Makurdi Road in Lafia provided by the Nasarawa State Government.\n\n
+        By 2019, the central administration and all faculties, except two, had moved to the permanent site of the University. \n\n
+        On June 20, 2019, the name of the University was changed to Federal University of Lafia by the Governing Council. The correction was based on the Gazette of Federal University Lafia (Establishment) Act 2015 which amended the name of the University.\n\n
+        The Proprietor of the Federal University Lafia is the Federal Government of Nigeria. While the Visitor is His Excellency, the President and Commander In Chief of the Armed Forces of the Federal Republic of Nigeria.\n
+    </string>
+    <string name="about_dscfulafia">Developer Student Club: FULafia is a club by Google Developers under the supervision of NACOSS FULAFIA to help students bridge the gap between theory and practical as it relates to being a developer. \n Participation is for any student irrespective of Department.</string>
+</resources>
