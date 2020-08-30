@@ -1,19 +1,20 @@
 package com.leedroids.fulafiaguide;
 
 import Adaptors.SliderAdapter;
-import androidx.annotation.NonNull;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,7 +24,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager ;
     int[] images;
-    private CardView history,faculties,principalofficers,studentslife,map,more;
+    private CardView history,faculties,principalofficers, onlineChannels,map,more;
     private ScrollView scrollView;
     private BottomNavigationView bottomNavigationView;
 
@@ -35,56 +36,22 @@ public class MainActivity extends AppCompatActivity {
         history = findViewById(R.id.History);
         faculties = findViewById(R.id.Faculties);
         principalofficers = findViewById(R.id.PrincipalOfficer);
-        studentslife = findViewById(R.id.StudentLife);
+        onlineChannels = findViewById(R.id.onlineChannels);
         map = findViewById(R.id.Map);
         more = findViewById(R.id.More);
         scrollView = findViewById(R.id.scrollView);
+
         bottomNavigationView = findViewById(R.id.bottomBar);
-
-
-
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.home:
-                        Intent homeIntent = new Intent(MainActivity.this,MainActivity.class);
-                        startActivity(homeIntent);
-                        break;
-                    case R.id.contact:
-                        // Create a new Dialog_calling object called dialog
-                        DialogContact dialog = new DialogContact();
-                        dialog.show(getFragmentManager(), "123");
-
-                        break;
-                    case R.id.share:
-
-                        Intent sendIntent = new Intent();
-                        sendIntent.setAction(Intent.ACTION_SEND);
-                        sendIntent.putExtra(Intent.EXTRA_TEXT,
-                                "Hey check out the FULafia Guide App at: https://www.playstore.com");
-                        sendIntent.setType("text/plain");
-                        startActivity(sendIntent);
-                        break;
-
-
-
-
-                }
-                return true;
-            }
-        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationListener(this));
 
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                History fragment = new History();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.mFragment, fragment, "History");
-                fragmentTransaction.commit();
+                Intent intent = new Intent(getApplicationContext(),History.class);
+                startActivity(intent);
             }
         });
+
        faculties.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,13 +67,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(principalIntent);
             }
         });
+
+        onlineChannels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ocIntent = new Intent(getApplicationContext(),OnlineChannelsActivity.class);
+                startActivity(ocIntent);
+            }
+        });
+
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapIntent= new Intent(getApplicationContext(),FulafiaMapActivity.class);
+                startActivity(mapIntent);
+            }
+        });
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 More fragment = new More();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.mFragment, fragment, "More");
-                fragmentTransaction.commit();
+                fragmentTransaction
+                        .replace(R.id.mFragment, fragment, "More")
+                        .addToBackStack("more")
+                        .commit();
             }
         });
 
@@ -122,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.mallamadamulectureandofficecomplex,
                 R.drawable.temp,
                 R.drawable.images3
-
         };
 
         viewPager.setAdapter(new SliderAdapter(this, images));
@@ -130,6 +114,27 @@ public class MainActivity extends AppCompatActivity {
 
         timer.scheduleAtFixedRate(new SliderTimer(),1000,10000);
     }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder exitAlert = new AlertDialog.Builder(this);
+        exitAlert.setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MainActivity.this.finishAffinity();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MainActivity.this.recreate();
+                    }
+                })
+                .show();
+    }
+
     private class  SliderTimer extends TimerTask {
         @Override
         public  void  run(){

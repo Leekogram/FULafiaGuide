@@ -114,7 +114,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Type: Federal Univeristy"
+                    android:text="Type: Federal University"
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />
@@ -125,7 +125,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Chancellor: ********"
+                    android:text="Chancellor: King W.S Joshua Igbugburu"
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />
@@ -136,7 +136,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Vice-Chancellor: Prof. Muhammad Sanusi Liman"
+                    android:text="Vice-Chancellor: Prof. Muhammed Sanusi Liman"
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />
@@ -147,7 +147,7 @@
                     android:fontFamily="sans-serif-condensed-light"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Location: Maraba Akunza, Obi Road Lafia, Nasarawa State, Nigeria."
+                    android:text="Location: PMB 146, Makurdi Road, Lafia, Nasarawa State, Nigeria."
                     android:textColor="#000"
                     android:textSize="12sp"
                     app:fontFamily="sans-serif-condensed-light" />
@@ -236,7 +236,7 @@
             android:gravity="center"
             android:layout_marginBottom="8dp"
             android:text="Permanent Site"
-            android:textColor="#000"
+            android:textColor="@color/colorAccent"
             android:textSize="14sp"
             android:textStyle="bold" />
         <androidx.cardview.widget.CardView
@@ -247,7 +247,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="90dp"
+            android:layout_marginBottom="10dp"
             app:cardBackgroundColor="@color/cardview_light_background"
             app:cardUseCompatPadding="true">
 
@@ -264,8 +264,8 @@
                     android:gravity="start"
                     android:padding="5dp"
                     android:text="About FULafia"
-                    android:textColor="#000"
-                    android:textSize="12sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     app:fontFamily="serif" />
 
@@ -273,12 +273,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="start"
-                    android:padding="5dp"
+                    android:padding="10dp"
                     android:fontFamily="sans-serif-condensed-light"
-                    android:layout_margin="8dp"
-                    android:text="The Federal University of Lafia (FULafia) was established in February 2011 by the Federal Government of Nigeria for the public benefit and it is recognized globally. Throughout our great history, FULafia has offered access to a wide range of academic opportunities. The pioneer Vice Chancellor of the University was Professor Ekanem Ikp Braide and the current Vice Chancellor is Professor Muhammad Sanusi Liman. The Federal University Lafia started with an initial student population of 243 at the commencement of academic activities in 2012, which has now increased to over 5000 in the 2018/2019 academic session."
+                    android:text="@string/about_fulafia"
                     android:textColor="#000"
-                    android:textSize="13.5sp"
                      />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

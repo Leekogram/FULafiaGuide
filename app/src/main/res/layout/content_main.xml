@@ -47,7 +47,9 @@
                     android:textColor="#FFAF6A03"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:fontFamily="serif" />
+                    app:fontFamily="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal" />
 
                 <TextView
                     android:id="@+id/logo"
@@ -197,7 +199,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/StudentLife"
+                            android:id="@+id/onlineChannels"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_margin="10dp"
@@ -215,14 +217,14 @@
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
                                     android:layout_margin="8dp"
-                                    android:src="@drawable/student" />
+                                    android:src="@drawable/online_channels_icon" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
                                     android:padding="8dp"
-                                    android:text="Students Life"
+                                    android:text="Online Channels"
                                     android:textAlignment="center"
                                     android:textColor="@color/colorPrimary"
                                     android:textSize="13sp"

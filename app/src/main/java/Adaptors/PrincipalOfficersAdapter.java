@@ -32,12 +32,8 @@ public class PrincipalOfficersAdapter extends RecyclerView.Adapter<PrincipalOffi
         public MyViewHolder(View view) {
             super(view);
             photo = (ImageView)view.findViewById(R.id.picture);
-
             name = (TextView)view.findViewById(R.id.name);
             post = (TextView)view.findViewById(R.id.post);
-
-
-
 
         }
     }
@@ -49,26 +45,20 @@ public class PrincipalOfficersAdapter extends RecyclerView.Adapter<PrincipalOffi
     }
 
     @Override
-    public PrincipalOfficersAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.singlephoto, parent, false);
 
-        return new PrincipalOfficersAdapter.MyViewHolder(itemView);
+        return new MyViewHolder(itemView);
     }
     @Override
-    public void onBindViewHolder(PrincipalOfficersAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
         PrincipalOfficersModel Item = principalOfficersModels.get(position);
 
 
         holder.photo.setImageResource(Item.getPhotoid());
         holder.name.setText(Item.getName());
         holder.post.setText(Item.getPost());
-
-
-
-
-
-
 
         Animation animation = AnimationUtils.loadAnimation(context,android.R.anim.slide_in_left);
         holder.itemView.startAnimation(animation);

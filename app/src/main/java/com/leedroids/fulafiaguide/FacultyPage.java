@@ -1,24 +1,21 @@
 package com.leedroids.fulafiaguide;
 
 import Adaptors.DepartmentAdapter;
-import Adaptors.PrincipalOfficersAdapter;
-import Adaptors.SearchAdapter;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import model.DepartmentModel;
-import model.PrincipalOfficersModel;
-import model.SearchModel;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FacultyPage extends AppCompatActivity {
@@ -27,12 +24,17 @@ public class FacultyPage extends AppCompatActivity {
     private List<DepartmentModel> departmentModel;
     private DepartmentAdapter departmentAdapter;
     private ImageView facultyPhoto;
-    private TextView facultyName;
-    private TextView home,faculty,depart;
-    private  String f_name;
+    private String f_name;
+    private int f_image;
+    private Toolbar toolbar;
+    private BottomNavigationView bottomNavigationView;
 
-    private String[] FACULTYOFART = {"List of Departments in The Faculty","• Fine Art Department","• Theatre and Media Art Department","• etc..."};
-    private String[] FACULTYOFSCIENCE = {"List of Departments in The Faculty","• Computer Science Department","• Chemistry Department","• Physics Department","• Mathematics Department"};
+    private String[] facultyOfArt = {"English","French","History","Visual and Creative Arts","Philosophy","Theater and Media Arts","Christian Religion Studies","Islamic Studies","Hausa Language","Arabic Studies"};
+    private String[] facultyOfScience = {"Computer Science","Mathematics","Physics","Chemistry","Microbiology","Biochemistry","Statistics","Geography","Geology","Zoology","Science Laboratory Technology"};
+    private String[] facultyOfSocialScience = {"Economics","Political Science","Sociology","Social Work","Mass Communications","Psychology","Business Administration","Accounting"};
+    private String[] facultyOfAgriculture = {"Agricultural Economics and Extension Services","Agriculture and Fisheries","Forestry and Wildlife Management"};
+    private String[] facultyOfEducation = {"Computer Science Education","Mathematics Education","Physics Education","Biology Education","Chemistry Education","Library and Information Science","Special Needs and Rehabilitation Education","Business Education","Integrated Science Education"};
+    private String[] collegeOfMedicine = {"Medical Laboratory Science","Anatomy","Physiology","Medicine","Nursing","Radiography"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,97 +43,59 @@ public class FacultyPage extends AppCompatActivity {
 
         //Reference to all widgets
         facultyPhoto = findViewById(R.id.facultyImage);
-        facultyName = findViewById(R.id.facultyName);
         recyclerView = findViewById(R.id.faculty_recycler_view);
-        home = findViewById(R.id.home);
-        faculty = findViewById(R.id.faculty);
-        depart = findViewById(R.id.dept);
-        recyclerView.setHasFixedSize(true);
+
+        Bundle extras = getIntent().getExtras();
+        f_image = extras.getInt("facultyImage");
+        f_name = extras.getString("facultyName");
+
+        facultyPhoto.setImageResource(f_image);
+
+        toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Departments In "+f_name);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-
         departmentModel = new ArrayList<DepartmentModel>();
 
-        Bundle extras = getIntent().getExtras();
-
-
-
-        int f_image = extras.getInt("facultyImage");
-         f_name = extras.getString("facultyName");
-         depart.setText(f_name);
-        facultyName.setText(f_name);
-        facultyPhoto.setImageResource(f_image);
-
-        if (f_name.equals("Faculty of Arts")) {
-
-            for (int i= 0; i< FACULTYOFART.length; i++){
-
-                DepartmentModel item = new DepartmentModel(FACULTYOFART[i]);
-                departmentModel.add(item);
-            }
-
-
+        switch(f_name){
+            case "Faculty of Arts":
+                showDepartments(facultyOfArt);
+                break;
+            case "Faculty of Science":
+                showDepartments(facultyOfScience);
+                break;
+            case "Faculty of Social Sciences":
+                showDepartments(facultyOfSocialScience);
+                break;
+            case "Faculty of Education":
+                showDepartments(facultyOfEducation);
+                break;
+            case "Faculty of Agriculture":
+                showDepartments(facultyOfAgriculture);
+                break;
+            case "College of Medicine":
+                showDepartments(collegeOfMedicine);
+                break;
         }
-        if (f_name.equals("Faculty of Science")) {
-
-            for (int i= 0; i< FACULTYOFSCIENCE.length; i++){
-
-                DepartmentModel item = new DepartmentModel(FACULTYOFSCIENCE[i]);
-                departmentModel.add(item);
-            }
-
-        }
-
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent homeIntent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(homeIntent);
-            }
-        });
-        faculty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent facultyIntent = new Intent(getApplicationContext(),Faculties.class);
-                startActivity(facultyIntent);
-            }
-        });
-        depart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"You're already in "+f_name+" page !",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         departmentAdapter = new DepartmentAdapter(FacultyPage.this, departmentModel);
         recyclerView.setAdapter(departmentAdapter);
 
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-
-                DepartmentModel beanItem = departmentModel.get(position);
-
-                String DepartmentName = beanItem.getDepartmentName();
-
-
-               //Toast Department Name
-                Toast.makeText(getApplicationContext(),DepartmentName,Toast.LENGTH_SHORT).show();
-
-
-            }
-
-            @Override
-            public void onLongClick(View view, int positon) {
-
-            }
-        }));
-    }
+        bottomNavigationView = findViewById(R.id.bottomBar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationListener(this));
 
     }
+
+    private void showDepartments(String[] arr) {
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            DepartmentModel item = new DepartmentModel(arr[i]);
+            departmentModel.add(item);
+        }
+    }
+
+}
 

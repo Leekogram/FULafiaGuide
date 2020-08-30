@@ -25,18 +25,9 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView department_name;
 
-
-
-
         public MyViewHolder(View view) {
             super(view);
-
             department_name = (TextView)view.findViewById(R.id.DepartmentName);
-
-
-
-
-
         }
     }
 
@@ -47,16 +38,15 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.My
     }
 
     @Override
-    public DepartmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.department, parent, false);
 
-        return new DepartmentAdapter.MyViewHolder(itemView);
+        return new MyViewHolder(itemView);
     }
     @Override
-    public void onBindViewHolder(DepartmentAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
         DepartmentModel Item = departmentModels.get(position);
-
 
         holder.department_name.setText(Item.getDepartmentName());
 

@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginBottom="60dp">
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -43,7 +42,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="Professor Ekanem Ikp Braide"
+                    android:text="Professor Ekanem Ikpi Braide"
                     android:textColor="#000"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -84,7 +83,6 @@
                     android:layout_gravity="center_horizontal"
                     android:scaleType="fitXY"
                     android:src="@drawable/liman" />
-
 
                 <TextView
                     android:layout_width="match_parent"

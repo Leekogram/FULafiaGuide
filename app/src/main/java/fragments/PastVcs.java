@@ -22,11 +22,6 @@ public class PastVcs extends Fragment  {
         View view = inflater.inflate
                 (R.layout.fragment_pastvcs, container, false);
 
-
-
-
-
-
         return view;
 
     }

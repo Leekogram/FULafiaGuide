@@ -14,12 +14,21 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
-
         <Button
             android:id="@+id/call_security"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Call Fulafia Security"
+            android:background="@drawable/circle_brown_back"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/call_student_affair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Students Affairs"
             android:background="@drawable/circle_brown_back"
             android:textColor="#fff"
             android:textSize="12sp"
