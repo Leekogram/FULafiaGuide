@@ -30,7 +30,7 @@ public class Faculties extends AppCompatActivity{
     private int[] facultyImages = {
             R.drawable.temp,
             R.drawable.facultyofart,
-            R.drawable.temp,
+            R.drawable.faculty_of_education,
             R.drawable.facultyofscience,
             R.drawable.temp,
             R.drawable.temp
