@@ -29,19 +29,22 @@
             android:id="@+id/linearLay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="100"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/facultyImage"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:scaleType="fitXY"
+                android:layout_weight="35"
                 android:src="@mipmap/ic_launcher" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/faculty_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="65"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="58dp" />
 

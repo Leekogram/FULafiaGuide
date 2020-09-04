@@ -21,7 +21,7 @@ public class DialogContact extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_contact, null);
 
-        builder.setView(dialogView).setMessage("Click to Call");
+        builder.setView(dialogView);
 
 
        Button btnCallSecurity =  dialogView.findViewById(R.id.call_security);
