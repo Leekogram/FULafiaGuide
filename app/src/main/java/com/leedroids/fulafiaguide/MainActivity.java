@@ -1,6 +1,11 @@
 package com.leedroids.fulafiaguide;
 
-import Adaptors.SliderAdapter;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ScrollView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -9,17 +14,12 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ScrollView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import Adaptors.SliderAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager ;
@@ -126,12 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this.finishAffinity();
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        MainActivity.this.recreate();
-                    }
-                })
+                .setNegativeButton("No", null)
                 .show();
     }
 
