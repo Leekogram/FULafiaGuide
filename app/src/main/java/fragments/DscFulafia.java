@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leedroids.fulafiaguide.R;
-
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.leedroids.fulafiaguide.R;
 
 public class DscFulafia extends Fragment {
     private CardView aboutDsc;
@@ -29,7 +29,7 @@ public class DscFulafia extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://t.co/uAs3wGuRzP"));
+                i.setData(Uri.parse("https://dsc.community.dev/federal-university-lafia/"));
                 startActivity(i);
             }
         });

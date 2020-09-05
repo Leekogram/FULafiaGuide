@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leedroids.fulafiaguide.R;
-
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.leedroids.fulafiaguide.R;
 
 public class AboutApp extends Fragment {
     CardView anthonyCard, tundeCard, aliyuCard, tasiuCard;
@@ -41,7 +41,7 @@ public class AboutApp extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://RedEye_Tech"));
+                i.setData(Uri.parse("https://wwww.twitter.com/RedEye_Tech"));
                 startActivity(i);
             }
         });

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
@@ -57,7 +56,7 @@
                         android:fontFamily="sans-serif-condensed-light"
                         android:text="@string/about_fulafia_guide"
                         android:textColor="@color/colorAccent"
-                        android:textSize="13.5sp"
+                        android:textSize="15sp"
                         app:fontFamily="sans-serif-condensed-light"
                         />
 
@@ -338,10 +337,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="150dp"
                             android:layout_gravity="center"
-                            android:scaleType="fitXY"
                             android:background="@drawable/anthony"/>
 
 
@@ -372,18 +370,19 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="sans-serif-light"
+                android:layout_below="@+id/linear"
+                android:padding="10dp"
+                android:text="Version: 1.0.0"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:fontFamily="sans-serif-light"
-            android:layout_below="@+id/linear"
-            android:padding="10dp"
-            android:text="Version: 1.0.0"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="12sp" />
     </RelativeLayout>
 </ScrollView>
